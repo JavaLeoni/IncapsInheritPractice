@@ -6,22 +6,28 @@ import app.Car;
 public class Main {
     public static void main(String[] args) {
 
-        createEmployeeObject("firstName", "patronymicName", "lastname",
+        Employee employee = createEmployeeObject("firstName", "patronymicName", "lastname",
                 "position", "email", "+380(44)000-00-00", 20);
+        outPutEmloyeeData(employee);
 
-        createCarObjectAndCallStartMethod();
 
+        Car car = createCarObject();
+        car.start();
     }
 
-    public static void createEmployeeObject(String firstName, String patronymicName, String lastname,
+    public static Employee createEmployeeObject(String firstName, String patronymicName, String lastname,
                                             String position, String email, String phone, int numYearsOld) {
 
-        Employee employee = new Employee(firstName, patronymicName, lastname, position, email, phone, numYearsOld);
+        return new Employee(firstName, patronymicName, lastname, position, email, phone, numYearsOld);
     }
 
-    public static void createCarObjectAndCallStartMethod() {
-        Car car = new Car();
-        car.start();
+    public static void outPutEmloyeeData(Employee employee) {
+
+        System.out.println(employee.toString() + "\n");
+    }
+
+    public static Car createCarObject() {
+        return new Car();
     }
 
 }
